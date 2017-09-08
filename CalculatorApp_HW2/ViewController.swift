@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonPress(_ sender: UIButton) {
-        displayLabel.text = sender.currentTitle
+        displayLabel.text = displayLabel.text! + sender.currentTitle!
     }
     
     
