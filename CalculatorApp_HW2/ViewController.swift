@@ -15,7 +15,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonPress(_ sender: UIButton) {
+        if sender.currentTitle == "C" {
+            displayLabel.text = ""
+        }
+        else {
         displayLabel.text = displayLabel.text! + sender.currentTitle!
+        }
     }
     
     
