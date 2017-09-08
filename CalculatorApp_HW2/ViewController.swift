@@ -10,6 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var displayLabel: UILabel!
+    
+    
+    @IBAction func buttonPress(_ sender: UIButton) {
+        displayLabel.text = sender.currentTitle
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
