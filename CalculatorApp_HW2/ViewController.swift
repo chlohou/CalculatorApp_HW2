@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             displayLabel.text = ""
         }
         else {
-            switch operators {
+  /*          switch operators {
                 case "+":
                 //
                 case "-":
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
                 case "*":
                 //
             }
-     // compute
+ */    // compute
 
     }
     }
