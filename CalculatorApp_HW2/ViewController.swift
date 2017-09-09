@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    var hasOperatorBeenPressed = false
+    
+    
     @IBOutlet weak var displayLabel: UILabel!
     
     
@@ -24,13 +26,26 @@ class ViewController: UIViewController {
     
     
     @IBAction func pressOperation(_ sender: UIButton) {
-        if displayLabel.text == "" {
+        if hasOperatorBeenPressed == false {
+            var previousValue = Double(displayLabel.text!)
+            hasOperatorBeenPressed = true
             displayLabel.text = ""
-        } else {
-            
+        }
+        else {
+            switch operators {
+                case "+":
+                //
+                case "-":
+                //
+                case "/":
+                //
+                case "*":
+                //
+            }
+     // compute
+
     }
     }
-    
     
     
     
