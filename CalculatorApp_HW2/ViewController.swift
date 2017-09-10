@@ -48,6 +48,11 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func pressEqual(_ sender: UIButton) {
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
