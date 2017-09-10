@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
+    @IBOutlet weak var answerDisplay: UILabel!
     
     @IBAction func buttonPress(_ sender: UIButton) {
         if sender.currentTitle == "C" {
@@ -46,16 +47,16 @@ class ViewController: UIViewController {
             switch sender.currentTitle! {
                 case "+":
                     answer = computing.add(a: previousValue, b: currentValue)
-                    print(answer)
+                    answerDisplay.text = String(answer)
                 case "−":
                     answer = computing.subtract(a: previousValue, b: currentValue)
-                    print(answer)
+                    answerDisplay.text = String(answer)
                 case "÷":
                     answer = computing.divide(a: previousValue, b: currentValue)
-                    print(answer)
+                    answerDisplay.text = String(answer)
                 case "×":
                     answer = computing.multiply(a: previousValue, b: currentValue)
-                    print(answer)
+                    answerDisplay.text = String(answer)
                 default:
                     print("did not work")
             }
