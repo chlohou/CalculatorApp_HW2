@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var hasOperatorBeenPressed = false
     var previousValue = 1.0
     var answer = 1.0
+    var previousOperation = "+"
     
     
     @IBOutlet weak var displayLabel: UILabel!
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
     @IBAction func buttonPress(_ sender: UIButton) {
         if sender.currentTitle == "C" {
             displayLabel.text = ""
+            hasOperatorBeenPressed = false
+            answerDisplay.text = ""
+            previousValue = 1.0
         } else {
         displayLabel.text = displayLabel.text! + sender.currentTitle!
         }
@@ -32,19 +36,22 @@ class ViewController: UIViewController {
         
         let computing = Compute()
         
-        if hasOperatorBeenPressed == false {
+         if hasOperatorBeenPressed == false {
             previousValue = Double(displayLabel.text!)!
-            print(previousValue)
             hasOperatorBeenPressed = true
             displayLabel.text = ""
-           
+            previousOperation = sender.currentTitle!
+        } else if hasOperatorBeenPressed == true && previousOperation == "=" {
+            previousValue = Double(answerDisplay.text!)!
+            hasOperatorBeenPressed = true
+            previousOperation = sender.currentTitle!
+        } else if hasOperatorBeenPressed == true && displayLabel.text == "" {
             
-        }
-        else {
+        } else {
             let currentValue = Double(displayLabel.text!)!
             print(currentValue)
             
-            switch sender.currentTitle! {
+            switch previousOperation {
                 case "+":
                     answer = computing.add(a: previousValue, b: currentValue)
                     answerDisplay.text = String(answer)
@@ -60,15 +67,12 @@ class ViewController: UIViewController {
                 default:
                     print("did not work")
             }
-            hasOperatorBeenPressed = false
+            previousValue = answer
+            previousOperation = sender.currentTitle!
+            displayLabel.text = ""
     }
-    }
-    
-    
-    @IBAction func pressEqual(_ sender: UIButton) {
-        
-    }
-    
+}
+
     
     
     override func viewDidLoad() {

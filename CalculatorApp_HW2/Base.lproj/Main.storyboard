@@ -213,7 +213,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressEqual:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDU-jS-oIN"/>
+                                    <action selector="pressOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8d1-KO-59q"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb2-wm-WJZ">
