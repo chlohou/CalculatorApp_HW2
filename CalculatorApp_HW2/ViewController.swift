@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var hasOperatorBeenPressed = false
+    var previousValue = 1.0
+    var answer = 1.0
     
     
     @IBOutlet weak var displayLabel: UILabel!
@@ -26,24 +28,38 @@ class ViewController: UIViewController {
     
     
     @IBAction func pressOperation(_ sender: UIButton) {
+        
+        let computing = Compute()
+        
         if hasOperatorBeenPressed == false {
-            var previousValue = Double(displayLabel.text!)
+            previousValue = Double(displayLabel.text!)!
+            print(previousValue)
             hasOperatorBeenPressed = true
             displayLabel.text = ""
+           
+            
         }
         else {
-  /*          switch operators {
+            let currentValue = Double(displayLabel.text!)!
+            print(currentValue)
+            
+            switch sender.currentTitle! {
                 case "+":
-                //
-                case "-":
-                //
-                case "/":
-                //
-                case "*":
-                //
+                    answer = computing.add(a: previousValue, b: currentValue)
+                    print(answer)
+                case "−":
+                    answer = computing.subtract(a: previousValue, b: currentValue)
+                    print(answer)
+                case "÷":
+                    answer = computing.divide(a: previousValue, b: currentValue)
+                    print(answer)
+                case "×":
+                    answer = computing.multiply(a: previousValue, b: currentValue)
+                    print(answer)
+                default:
+                    print("did not work")
             }
- */    // compute
-
+            hasOperatorBeenPressed = false
     }
     }
     
