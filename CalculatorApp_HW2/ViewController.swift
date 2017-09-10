@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var previousValue = 1.0
     var answer = 1.0
     var previousOperation = "+"
+    var currentValue = 1.0
+    
     
     
     @IBOutlet weak var displayLabel: UILabel!
@@ -48,9 +50,7 @@ class ViewController: UIViewController {
         } else if hasOperatorBeenPressed == true && displayLabel.text == "" {
             
         } else {
-            let currentValue = Double(displayLabel.text!)!
-            print(currentValue)
-            
+            currentValue = Double(displayLabel.text!)!
             switch previousOperation {
                 case "+":
                     answer = computing.add(a: previousValue, b: currentValue)
@@ -74,11 +74,20 @@ class ViewController: UIViewController {
 }
 
     
+    @IBAction func changeSign(_ sender: UIButton) {
+        if displayLabel.text != "" {
+            currentValue = Double(displayLabel.text!)!
+            currentValue *= -1
+        }
+        else {
+            
+        }
+        displayLabel.text = String(currentValue)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
