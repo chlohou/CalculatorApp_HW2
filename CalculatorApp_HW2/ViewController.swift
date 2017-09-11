@@ -39,13 +39,15 @@ class ViewController: UIViewController {
         
         let computing = Compute()
         
-         if hasOperatorBeenPressed == false {
+         if hasOperatorBeenPressed == false && answerDisplay.text != "" {
             previousValue = Double(answerDisplay.text!)!
             hasOperatorBeenPressed = true
             answerDisplay.text = ""
             previousOperation = sender.currentTitle!
             displayLabel.text = displayLabel.text! + sender.currentTitle!
-        } else if hasOperatorBeenPressed == true && previousOperation == "=" {
+         } else if hasOperatorBeenPressed == false {
+            
+         } else if hasOperatorBeenPressed == true && previousOperation == "=" {
             previousValue = Double(answerDisplay.text!)!
             previousOperation = sender.currentTitle!
             displayLabel.text = displayLabel.text! + sender.currentTitle!
@@ -72,6 +74,10 @@ class ViewController: UIViewController {
             }
             previousValue = answer
             previousOperation = sender.currentTitle!
+            if previousOperation != "="{
+            displayLabel.text = displayLabel.text! + previousOperation
+            answerDisplay.text = ""
+            }
     }
 }
 
