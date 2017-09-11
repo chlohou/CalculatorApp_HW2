@@ -30,6 +30,7 @@ class ViewController: UIViewController {
             previousValue = 1.0
         } else {
         displayLabel.text = displayLabel.text! + sender.currentTitle!
+        answerDisplay.text = answerDisplay.text! + sender.currentTitle!
         }
     }
     
@@ -39,18 +40,20 @@ class ViewController: UIViewController {
         let computing = Compute()
         
          if hasOperatorBeenPressed == false {
-            previousValue = Double(displayLabel.text!)!
-            hasOperatorBeenPressed = true
-            displayLabel.text = ""
-            previousOperation = sender.currentTitle!
-        } else if hasOperatorBeenPressed == true && previousOperation == "=" {
             previousValue = Double(answerDisplay.text!)!
             hasOperatorBeenPressed = true
+            answerDisplay.text = ""
             previousOperation = sender.currentTitle!
-        } else if hasOperatorBeenPressed == true && displayLabel.text == "" {
+            displayLabel.text = displayLabel.text! + sender.currentTitle!
+        } else if hasOperatorBeenPressed == true && previousOperation == "=" {
+            previousValue = Double(answerDisplay.text!)!
+            previousOperation = sender.currentTitle!
+            displayLabel.text = displayLabel.text! + sender.currentTitle!
+            answerDisplay.text = ""
+        } else if hasOperatorBeenPressed == true && answerDisplay.text == "" {
             
         } else {
-            currentValue = Double(displayLabel.text!)!
+            currentValue = Double(answerDisplay.text!)!
             switch previousOperation {
                 case "+":
                     answer = computing.add(a: previousValue, b: currentValue)
@@ -69,7 +72,6 @@ class ViewController: UIViewController {
             }
             previousValue = answer
             previousOperation = sender.currentTitle!
-            displayLabel.text = ""
     }
 }
 
