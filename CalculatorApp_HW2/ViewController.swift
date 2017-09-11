@@ -77,14 +77,18 @@ class ViewController: UIViewController {
 
     
     @IBAction func changeSign(_ sender: UIButton) {
-        if displayLabel.text != "" {
-            currentValue = Double(displayLabel.text!)!
+        if answerDisplay.text == "" && displayLabel.text == "" {
+            displayLabel.text = "-"
+            answerDisplay.text = "-"
+        } else if answerDisplay.text == "" {
+            answerDisplay.text = "-"
+        } else {
+            currentValue = Double(answerDisplay.text!)!
             currentValue *= -1
+            answerDisplay.text = String(currentValue)
+            displayLabel.text = displayLabel.text! + "×-1"
         }
-        else {
-            
-        }
-        displayLabel.text = String(currentValue)
+        
     }
     
     override func viewDidLoad() {
